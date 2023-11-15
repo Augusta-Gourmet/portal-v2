@@ -1,0 +1,35 @@
+/* general CSS definitions */
+
+/* @import uri(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900); */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: var(--gray);
+  width: 100%;
+  min-height: 100vh;
+}
+
+:root {
+  font-family: Inter, sans-serif;
+  /* line-height: 1.5; */
+  /* font-weight: 400; */
+
+  /* colors */
+  --gray: #eee;
+
+  /* color-scheme: light dark; */
+  /* color: rgba(255, 255, 255, 0.87); */
+  /* background-color: #242424; */
+
+  /* font-synthesis: none; */
+  /* text-rendering: optimizeLegibility; */
+  /* -webkit-font-smoothing: antialiased; */
+  /* -moz-osx-font-smoothing: grayscale; */
+  /* -webkit-text-size-adjust: 100%; */
+}
+
