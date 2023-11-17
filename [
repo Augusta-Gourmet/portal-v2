@@ -27,8 +27,8 @@ export default function Sidebar() {
           <ul>
             {SidebarData.map((item, i) => {
               return (
-                <li key={i}>
-                  <NavLink to={item.path}>
+                <li key={i} className={item === activeItem ? "active" : ""}>
+                  <NavLink to={""}>
                     {item.icon}
                     <span className="text">{item.title}</span>
                     {item.sub.length > 0 ? <VscChevronDown /> : null}
@@ -39,7 +39,7 @@ export default function Sidebar() {
                       {item.sub.map((subItem, j) => {
                         return (
                           <li key={j}>
-                            <NavLink to={item.path + subItem.path}>
+                            <NavLink to="#">
                               <span className="text">{subItem.title}</span>
                             </NavLink>
                           </li>
