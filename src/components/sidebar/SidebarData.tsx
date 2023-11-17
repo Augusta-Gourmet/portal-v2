@@ -1,9 +1,7 @@
-import { VscAccount, VscChevronDown } from "react-icons/vsc";
 import {
   AiOutlineShopping,
   AiOutlineTeam,
   AiOutlineTool,
-  AiFillHome,
   AiOutlineReconciliation,
   AiOutlineFileText
 } from "react-icons/ai";
@@ -17,7 +15,7 @@ export const SidebarData = [
   },
   {
     title: 'Funcionários',
-    path: '/employees',
+    path: '',
     icon: <AiOutlineTeam className="icon"/>,
     sub: [
       { title: "Sub1", path: "/sub1" },

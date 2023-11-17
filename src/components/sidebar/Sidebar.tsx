@@ -5,8 +5,8 @@ import "./Sidebar.css";
 import { SidebarData } from "./SidebarData.tsx";
 
 import { VscChevronDown } from "react-icons/vsc";
-import { GoGear } from "react-icons/go";
-import { AiFillHome } from "react-icons/ai";
+import { GoGear, GoCodescan } from "react-icons/go";
+import { AiFillHome, AiOutlineQuestionCircle, AiOutlineLogout, AiOutlineMenu } from "react-icons/ai";
 
 export default function Sidebar() {
   const [hidden, setHidden] = useState(false);
@@ -18,6 +18,7 @@ export default function Sidebar() {
       <div className="head">
         <AiFillHome className="icon" />
         <h5 className="title">Bem-vindo de volta!</h5>
+        <AiOutlineMenu />
       </div>
 
       <div className="body">
@@ -26,15 +27,17 @@ export default function Sidebar() {
 
           <ul>
             {SidebarData.map((item, i) => {
+              const hasSubMenu = item.sub.length > 0;
+
               return (
                 <li key={i}>
                   <NavLink to={item.path}>
                     {item.icon}
                     <span className="text">{item.title}</span>
-                    {item.sub.length > 0 ? <VscChevronDown /> : null}
+                    {hasSubMenu ? <VscChevronDown /> : null}
                   </NavLink>
 
-                  {item.sub.length > 0 && (
+                  {hasSubMenu && (
                     <ul className="sub-menu">
                       {item.sub.map((subItem, j) => {
                         return (
@@ -58,8 +61,8 @@ export default function Sidebar() {
           <ul>
             <li>
               <a href="#">
-                <GoGear />
-                <span className="text">Settings</span>
+                <GoCodescan />
+                <span className="text">Parâmetros</span>
               </a>
             </li>
           </ul>
@@ -67,18 +70,18 @@ export default function Sidebar() {
       </div>
       <div className="foot">
         <div className="menu">
-          <p className="title">Perfil</p>
+          <p className="title">Sessão</p>
           <ul>
             <li>
               <a href="#">
-                <GoGear />
+                <AiOutlineQuestionCircle />
                 <span className="text">Ajuda</span>
               </a>
             </li>
             <li>
               <a href="#">
-                <GoGear />
-                <span className="text">Ajuda</span>
+                <AiOutlineLogout />
+                <span className="text">Logout</span>
               </a>
             </li>
           </ul>
