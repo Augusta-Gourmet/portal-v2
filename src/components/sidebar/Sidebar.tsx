@@ -13,6 +13,12 @@ export default function Sidebar() {
 
   const toggleSidebar = () => setHidden(!hidden);
 
+  function log(e) {
+    console.log("oi")
+    // console.log(e.target.querySelector('.sub-menu'))
+    // e.target.querySelector('.sub-menu').classList.toggle('show')
+  }
+
   return (
     <div className="sidebar">
       <div className="head">
@@ -27,29 +33,38 @@ export default function Sidebar() {
 
           <ul>
             {SidebarData.map((item, i) => {
+              
               const hasSubMenu = item.sub.length > 0;
 
               return (
                 <li key={i}>
-                  <NavLink to={item.path}>
-                    {item.icon}
-                    <span className="text">{item.title}</span>
-                    {hasSubMenu ? <VscChevronDown /> : null}
-                  </NavLink>
+                  { hasSubMenu ? (
+                    <div onClick={(e) => log(e)}>
+                      <a>
+                        {item.icon}
+                        <span className="text">{item.title}</span>
+                        <VscChevronDown />
+                      </a>
 
-                  {hasSubMenu && (
-                    <ul className="sub-menu">
-                      {item.sub.map((subItem, j) => {
-                        return (
-                          <li key={j}>
-                            <NavLink to={item.path + subItem.path}>
-                              <span className="text">{subItem.title}</span>
-                            </NavLink>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  )}
+                      <ul className="sub-menu">
+                        {item.sub.map((subItem, j) => {
+                          return (
+                            <li key={j}>
+                              <NavLink to={item.path + subItem.path}>
+                                <span className="text">{subItem.title}</span>
+                              </NavLink>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                    ) : (
+                      <NavLink to={item.path}>
+                        {item.icon}
+                        <span className="text">{item.title}</span>
+                      </NavLink>
+                    )
+                  }
                 </li>
               );
             })}

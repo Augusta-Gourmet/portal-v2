@@ -57,8 +57,8 @@
   transition: all 0.3s;
 }
 
-.menu ul li > a:hover,
-.menu ul li > a.active {
+.menu ul li  a:hover,
+.menu ul li  a.active {
   color: #000;
   background-color: #f6f6f6;
 }
@@ -81,10 +81,18 @@
 }
 
 .menu .sub-menu {
+  display:none;
+  height: 0;
   margin-left: 20px;
   padding-left: 20px;
   padding-top: 5px;
   border-left: 1px solid #f6f6f6;
+  transition: all 1s;
+}
+
+.menu .sub-menu.show {
+  display:block;
+  height: fit-content;
 }
 
 .menu .sub-menu li a {

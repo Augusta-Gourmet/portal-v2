@@ -15,11 +15,11 @@ export const SidebarData = [
   },
   {
     title: 'Funcionários',
-    path: '',
+    path: '/employees',
     icon: <AiOutlineTeam className="icon"/>,
     sub: [
-      { title: "Sub1", path: "/sub1" },
-      { title: "Sub2", path: "/sub2" }
+      { title: "Ponto", path: "/sub1" },
+      { title: "Cadastro", path: "/sub2" }
     ]
   },
   {
